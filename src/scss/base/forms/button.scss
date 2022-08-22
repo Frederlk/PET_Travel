@@ -1,0 +1,30 @@
+.btn {
+    font-family: "Mulish";
+    display: inline-flex;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 8px;
+    background-color: $orange;
+    color: $white;
+    font-size: 17px;
+    transition: all 0.3s ease 0s;
+    font-weight: 500;
+    @media (any-hover: hover) {
+        &:hover {
+            color: $orange;
+            background-color: $white;
+        }
+    }
+    &_outline {
+        background-color: $white;
+        color: $orange;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $white;
+                background-color: $orange;
+            }
+        }
+    }
+}
