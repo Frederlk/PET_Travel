@@ -1,433 +1,349 @@
 .main {
     &__container {
-    }
-
-    &__body {
-        @media (min-width: $md3+px) {
+        position: relative;
+        @media (min-width: $mobile) {
             display: flex;
             justify-content: space-between;
-            @media (max-width: $md2+px) {
+            @media (max-width: $tablet) {
                 align-items: center;
             }
         }
     }
 
     &__info {
-        margin-top: 35px;
-        margin-right: 30px;
-        flex: 0 0 470px;
-        @media (max-width: $md2+px) {
-            flex: 0 1 50%;
-            margin-top: 0;
+        flex: 0 0 rem(470);
+        @media (min-width: $tablet) {
+            margin-top: rem(35);
         }
-        @media (max-width: 870px) {
+        @media (max-width: $tablet) {
+            flex: 0 1 50%;
+        }
+        @media (max-width: em(870)) {
             flex: 0 1 40%;
         }
-        @media (max-width: $md3+px) {
-            margin-right: 0;
+        @media (min-width: $mobile) {
+            margin-right: rem(30);
         }
     }
 
     &__image {
-        flex: 0 1 687px;
-        margin-right: -85px;
-        @media (max-width: 1599.98px) {
-            margin-right: 0;
+        flex: 0 1 rem(687);
+        @media (min-width: em(1599.98)) {
+            margin-right: rem(-87);
         }
-        @media (max-width: $md2+px) {
+        @media (max-width: $tablet) {
             flex: 0 1 50%;
         }
-        @media (max-width: 870px) {
+        @media (max-width: em(870)) {
             flex: 0 1 60%;
         }
-        @media (max-width: $md3+px) {
-            max-width: 500 / 768 * 100%;
-            margin: 0 auto 20px auto;
+        @media (max-width: $mobile) {
+            max-width: percent(500, 768);
+            margin: 0 auto rem(20) auto;
         }
         img {
             max-width: 100%;
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        &._animate {
-            @extend .anim;
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(0, 0, 0.8, 0.2);
     }
+
     &__circle {
-        transition: all 0.5s ease 0s;
-        @extend .no-anim;
         &_1 {
-            width: 26px;
-            height: 26px;
+            width: rem(26);
+            height: rem(26);
             top: 50%;
-            left: -100px;
-            @media (max-width: 1599.98px) {
+            left: rem(-100);
+            @media (max-width: em(1599.98)) {
                 top: 32%;
-                left: 4px;
+                left: 4%;
             }
-            @media (max-width: 870px) {
-                top: 26%;
+            @media (max-width: $tablet) {
+                left: 20%;
             }
-            @media (max-width: $md3+px) {
-                left: 40px;
-            }
-            @media (max-width: $md4+px) {
-                left: 20px;
+            @media (max-width: $mobile) {
+                left: 2%;
             }
         }
 
         &_2 {
-            width: 20px;
-            height: 20px;
-            bottom: 38px;
-            left: 40%;
-            @media (max-width: $md3+px) {
-                bottom: -40px;
+            width: rem(20);
+            height: rem(20);
+            bottom: rem(16);
+            left: percent(540, 1220);
+            @media (max-width: $mobile) {
+                bottom: rem(-40);
                 left: 80%;
             }
         }
+
+        // ANIMATION ========================================================================================================================================================
+        transition: opacity 0.5s ease 0s, visibility 0.5s ease 0s;
+        @extend %no-anim;
     }
     &__cross {
-        transition: all 0.5s ease 0s;
-        @extend .no-anim;
-        width: 20px;
-        height: 20px;
-        top: 55px;
-        left: 35%;
-        @media (max-width: $md2+px) {
-            top: 20px;
-            left: 40%;
+        width: rem(20);
+        height: rem(20);
+        top: rem(55);
+        left: percent(466, 1220);
+        @media (max-width: $tablet) {
+            top: rem(20);
+            left: 45%;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             left: auto;
-            top: 100px;
-            right: 20px;
+            top: rem(100);
+            right: rem(20);
         }
+
+        // ANIMATION ========================================================================================================================================================
+        transition: opacity 0.5s ease 0s, visibility 0.5s ease 0s;
+        @extend %no-anim;
     }
 }
 .info-main {
-    &__content {
-    }
-
     &__title {
         font-family: "Playfair Display";
         font-weight: 700;
-        @include adaptiv-font(64, 40, 1);
-        line-height: 80 / 64 * 100%;
-        @include adaptiv-value("margin-bottom", 75, 20, 1);
-        color: $dark;
-        @media (max-width: $md3+px) {
-            margin-bottom: 20px;
-        }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+        @include adaptiveValue("font-size", 64, 40);
+        line-height: math.div(80, 64);
+        @include adaptiveValue("margin-bottom", 75, 20, 1220, 767.98, 1);
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.2);
     }
 
     &__form {
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.5);
     }
 
     &__subtitle {
         font-weight: 600;
-        font-size: 22px;
-        color: $dark;
-        line-height: 27 / 22 * 100%;
-        @include adaptiv-value("padding-bottom", 20, 10, 1);
-        @include adaptiv-value("margin-bottom", 48, 20, 1);
+        font-size: rem(22);
+        line-height: math.div(27, 22);
+        @include adaptiveValue("padding-bottom", 20, 10);
+        @include adaptiveValue("margin-bottom", 48, 20);
         position: relative;
         &::after {
             content: "";
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 32px;
-            height: 2px;
+            width: rem(32);
+            height: rem(2);
             background-color: $dark;
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.3s;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.3);
+    }
+
+    &__form-body {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @include adaptiveValue("margin-bottom", 50, 30);
+        gap: rem(35) rem(30);
+        @media (max-width: $mobile) {
+            @include adaptiveValue("gap", 20, 10, 767.98, 320, 1);
         }
     }
 
-    &__row {
-        display: flex;
-        align-items: center;
-        margin: 0px -15px;
-        @media (max-width: $md2+px) {
-            margin: 0px -10px;
-        }
-        @media (max-width: 870px) {
-            flex-wrap: wrap;
-            margin: 0;
-        }
-        @media (max-width: $md3+px) {
-            margin: 0px -10px;
-        }
-        @media (max-width: $md4+px) {
-            margin: 0;
-        }
-    }
-
-    &__select,
     &__date {
-        flex: 0 1 250px;
-        padding: 0px 15px;
-        @include adaptiv-value("margin-bottom", 35, 20, 1);
-        @media (max-width: $md2+px) {
+        .input {
+            min-height: rem(54);
         }
-        @media (max-width: 870px) {
-            padding: 0;
-            flex: 1 1 100%;
-            max-width: none;
-            @include adaptiv-value("margin-bottom", 20, 10, 1);
-        }
-        @media (max-width: $md3+px) {
-            padding: 0px 10px;
-            flex: 0 1 50%;
-        }
-        @media (max-width: $md4+px) {
-            padding: 0;
-            flex: 1 1 100%;
-        }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.5s;
-        &._animate {
-            @extend .anim;
+        .datepicker {
+            .day.selected {
+                background-color: $orange;
+            }
         }
     }
 
     &__btn {
-        min-height: 52px;
-        min-width: 180px;
-        @media (max-width: $md4+px) {
+        min-height: rem(52);
+        min-width: rem(180);
+        @media (max-width: $mobileSmall) {
             width: 100%;
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.6s;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.5);
     }
 }
 
-//</ОСНОВНОЙ БЛОК>====================================================================================================
+//========================================================================================================================================================
 
 .holder {
     &_sunny {
         .holder__image {
-            flex: 0 1 600px;
+            flex: 0 1 rem(600);
             margin-left: 0;
-            margin-right: 30px;
-            @media (max-width: $md2+px) {
+            margin-right: rem(30);
+            @media (max-width: $tablet) {
                 flex: 0 1 50%;
                 margin: 0;
             }
-            @media (max-width: $md3+px) {
-                margin: 0 auto 20px auto;
+            @media (max-width: $mobile) {
+                margin: 0 auto rem(20) auto;
             }
         }
         .holder__content {
-            margin: 0;
-        }
-        .content-holder__body {
-            @include adaptiv-value("margin-top", 150, 0, 1);
-            margin-left: 20px;
-            @media (max-width: $md2+px) {
-                @include adaptiv-value("margin-top", 50, 0, 1);
+            @include adaptiveValue("margin-top", 150, 0, 1220, 767.98, 1);
+            margin-left: rem(50);
+            @media (max-width: $tablet) {
                 margin-left: 0px;
-                margin-right: 30px;
+                margin-right: rem(30);
             }
-            @media (max-width: $md3+px) {
+            @media (max-width: $mobile) {
                 margin: 0;
             }
         }
         .content-holder__title,
         .content-holder__text,
         .content-holder__btn {
-            @extend .no-anim;
-            transition: all 0.8s ease 0.2s;
-            transform: translate(-50%, 0px);
-            &._animate {
-                @extend .anim;
-                transform: translate(0px, 0px);
-            }
+            // ANIMATION ========================================================================================================================================================
+            @include inViewBasic(-50%, 0, 0.8, 0.2);
         }
     }
     &__container {
-    }
-
-    &__body {
-        @media (min-width: $md3+px) {
+        position: relative;
+        @media (min-width: $mobile) {
             display: flex;
             justify-content: space-between;
         }
     }
 
     &__image {
-        flex: 0 1 660px;
-        margin-left: -50px;
-        @media (max-width: 1599.98px) {
-            margin-left: 0;
-        }
+        flex: 0 1 rem(660);
         img {
             max-width: 100%;
         }
-        @media (max-width: $md2+px) {
+        @media (min-width: em(1599.98)) {
+            margin-left: rem(-50);
+        }
+        @media (max-width: $tablet) {
             flex: 0 1 50%;
         }
-        @media (max-width: $md3+px) {
-            margin: 0 auto 20px auto;
-            max-width: 500 / 768 * 100%;
+        @media (max-width: $mobile) {
+            margin: 0 auto rem(20) auto;
+            max-width: percent(500, 768);
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        &._animate {
-            @extend .anim;
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(0, 0, 0.8, 0.2);
     }
 
     &__content {
-        flex: 0 0 480px;
-        margin: 0px 30px;
-        @media (max-width: $md2+px) {
+        flex: 0 0 rem(480);
+        margin: 0px rem(30);
+        @media (max-width: $tablet) {
             flex: 0 1 50%;
-            margin-left: 30px;
+            margin-left: rem(30);
             margin-right: 0px;
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             margin: 0;
         }
     }
     &__circle {
-        width: 20px;
-        height: 20px;
+        width: rem(20);
+        height: rem(20);
         &_explore {
             bottom: 25%;
-            @include adaptiv-value("right", 160, 40, 1);
-            @media (max-width: $md1+px) {
-                bottom: -35px;
+            @include adaptiveValue("right", 160, 40);
+            @media (max-width: $pc) {
+                bottom: rem(-35);
             }
         }
         &_sunny {
-            top: 85px;
-            left: 90px;
-            @media (max-width: $md2+px) {
-                top: -20px;
+            top: rem(85);
+            left: rem(90);
+            @media (max-width: $tablet) {
+                top: rem(-20);
             }
-            @media (max-width: $md3+px) {
+            @media (max-width: $mobile) {
                 display: none;
             }
         }
     }
     &__cross {
-        width: 20px;
-        height: 20px;
+        width: rem(20);
+        height: rem(20);
         &_explore {
             transform: rotate(7.49deg);
             top: 0px;
             left: 50%;
-            @media (max-width: $md3+px) {
-                left: 30px;
+            @media (max-width: $mobile) {
+                left: rem(20);
                 top: 100px;
             }
         }
         &_sunny-1 {
             left: 40%;
-            bottom: 90px;
+            bottom: rem(90);
             transform: rotate(20.42deg);
-            @media (max-width: 850px) {
+            @media (max-width: em(850)) {
                 bottom: 0;
             }
-            @media (max-width: $md3+px) {
+            @media (max-width: $mobile) {
                 left: 80%;
             }
-            @media (max-width: $md4+px) {
-                bottom: -40px;
+            @media (max-width: $mobileSmall) {
+                bottom: rem(-40);
             }
         }
 
         &_sunny-2 {
-            right: -20px;
-            top: 30px;
-            width: 16px;
-            height: 16px;
+            right: rem(-20);
+            top: rem(30);
+            width: rem(16);
+            height: rem(16);
             transform: rotate(9.99deg);
-            @media (max-width: 1599.98px) {
-                right: 40px;
+            @media (max-width: em(1599.98)) {
+                right: rem(40);
             }
         }
     }
 }
 
 .content-holder {
-    &__body {
-        @include adaptiv-value("margin-top", 110, 0, 1);
-        @media (max-width: $md2+px) {
-            @include adaptiv-value("margin-top", 50, 0, 1);
-        }
-        @media (max-width: $md3+px) {
-            margin: 0;
-        }
-    }
-
+    @include adaptiveValue("margin-top", 110, 0, 1220, 767.98, 1);
     &__title {
-        @extend .title;
+        @extend %title;
         &:not(:last-child) {
-            margin-bottom: 20px;
+            margin-bottom: rem(20);
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(50%, 0, 0.8, 0.2);
     }
 
     &__text {
         font-weight: 300;
-        font-size: 17px;
-        line-height: 30 / 17 * 100%;
+        font-size: rem(17);
+        line-height: math.div(30, 17);
         color: $grey;
-        padding: 0px 30px 0px 0px;
         &:not(:last-child) {
-            @include adaptiv-value("margin-bottom", 30, 20, 1);
+            @include adaptiveValue("margin-bottom", 30, 20);
         }
-        @media (max-width: $md2+px) {
-            padding: 0;
+        @media (min-width: $tablet) {
+            padding-right: rem(30);
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(50%, 0, 0.8, 0.2);
     }
 
     &__btn {
-        min-height: 48px;
-        min-width: 165px;
-        @media (max-width: $md4+px) {
+        min-height: rem(48);
+        min-width: rem(165);
+        @media (max-width: $mobileSmall) {
             width: 100%;
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(50%, 0, 0.8, 0.2);
     }
 }
 
@@ -435,90 +351,72 @@
 
 .destinations {
     &__container {
+        position: relative;
     }
 
     &__top {
-        padding: 0 50px;
-        @media (max-width: $md1+px) {
-            padding: 0px;
+        @media (min-width: $pc) {
+            padding: 0 rem(50);
         }
     }
 
     &__body {
-        display: flex;
-        margin: 0px -12px;
-        padding: 0px 50px;
-        @media (max-width: $md1+px) {
-            padding: 0px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(25);
+        @media (min-width: $pc) {
+            padding: 0 rem(50);
         }
-        @media (max-width: 850px) {
-            flex-wrap: wrap;
+        @media (max-width: em(850)) {
+            grid-template-columns: repeat(2, 1fr);
         }
-    }
-
-    &__column {
-        flex: 0 1 25%;
-        padding: 0 12px;
-        position: relative;
-        @media (max-width: 850px) {
-            flex: 0 1 50%;
-            margin: 0px 0px 24px 0px;
-        }
-        @media (max-width: $md4+px) {
-            flex: 1 1 100%;
-            &:nth-child(1) {
-                transition: all 0.8s ease 0.2s;
-            }
-            &:nth-child(2) {
-                transition: all 0.8s ease 0.2s;
-            }
-            &:nth-child(3) {
-                transition: all 0.8s ease 0.2s;
-            }
-            &:nth-child(4) {
-                transition: all 0.8s ease 0.2s;
-            }
-        }
-        &:nth-child(1) {
-            transition: all 0.8s ease 0.2s;
-        }
-        &:nth-child(2) {
-            transition: all 0.8s ease 0.4s;
-        }
-        &:nth-child(3) {
-            transition: all 0.8s ease 0.6s;
-        }
-        &:nth-child(4) {
-            transition: all 0.8s ease 0.8s;
-        }
-        @extend .no-anim;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
+        @media (max-width: $mobileSmall) {
+            gap: rem(50);
+            grid-template-columns: 1fr;
         }
     }
 
     &__inner {
-        border-radius: 8px;
+        border-radius: rem(8);
         display: block;
         overflow: hidden;
         @media (any-hover: hover) {
             &:hover {
-                .destinations__image {
+                .destinations__image-ibg {
                     img {
                         transform: scale(1.05);
                     }
                 }
             }
         }
+        // ANIMATION ========================================================================================================================================================
+        &:nth-child(1) {
+            @include inViewBasic(-50%, 0, 0.8, 0.2);
+        }
+        &:nth-child(2) {
+            @include inViewBasic(-50%, 0, 0.8, 0.4);
+        }
+        &:nth-child(3) {
+            @include inViewBasic(-50%, 0, 0.8, 0.6);
+        }
+        &:nth-child(4) {
+            @include inViewBasic(-50%, 0, 0.8, 0.8);
+        }
+        @media (max-width: $mobileSmall) {
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4) {
+                @include inViewBasic(-50%, 0, 0.8, 0.2);
+            }
+        }
     }
 
-    &__image {
-        padding-bottom: 330 / 260 * 100%;
-        min-height: 250px;
+    &__image-ibg {
+        padding-bottom: percent(330, 260);
+        min-height: rem(250);
         img {
-            transition: all 0.3s ease 0s;
+            transition: transform 0.3s ease 0s;
         }
     }
 
@@ -526,17 +424,15 @@
         position: absolute;
         bottom: 0;
         max-width: 80%;
-        left: 12px;
-        padding: 10px 20px 0px 0px;
+        padding: rem(10) rem(20) 0px 0px;
         background-color: $white;
-        border-radius: 0px 6px 0px 0px;
-        min-width: 122px;
+        border-radius: 0px rem(6) 0px 0px;
+        min-width: rem(122);
     }
 
     &__subtitle {
-        @extend .link;
-        color: $dark;
-        transition: all 0.3s ease 0s;
+        @extend %link;
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
                 color: $orange;
@@ -546,52 +442,51 @@
 
     &__country {
         font-weight: 500;
-        font-size: 15px;
-        line-height: 24 / 15 * 100%;
+        line-height: math.div(24, 15);
         color: $grey;
     }
     &__circle {
         &_1 {
-            width: 20px;
-            height: 20px;
-            top: -20px;
+            width: rem(20);
+            height: rem(20);
+            top: rem(-20);
             right: 25%;
-            @media (max-width: 850px) {
+            @media (max-width: em(850)) {
                 top: 0;
                 right: 30%;
             }
-            @media (max-width: $md4+px) {
+            @media (max-width: $mobileSmall) {
                 display: none;
             }
         }
 
         &_2 {
-            width: 20px;
-            height: 20px;
-            bottom: -50px;
+            width: rem(20);
+            height: rem(20);
+            bottom: rem(-50);
             left: 45%;
-            @media (max-width: $md3+px) {
-                bottom: -20px;
+            @media (max-width: $mobile) {
+                bottom: rem(-20);
                 left: 15%;
             }
         }
     }
     &__cross {
-        width: 20px;
-        height: 20px;
+        width: rem(20);
+        height: rem(20);
         bottom: 25%;
-        left: -50px;
-        @media (max-width: 1599.98px) {
-            left: 0;
+        left: rem(-50);
+        @media (max-width: em(1599.98)) {
+            left: rem(15);
         }
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             display: none;
         }
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobileSmall) {
             display: block;
             left: auto;
             bottom: auto;
-            top: 30px;
+            top: rem(30);
             right: 5%;
         }
     }
@@ -601,182 +496,164 @@
 
 .testi {
     &__container {
+        position: relative;
     }
 
     &__title {
-        @extend .title;
-        @include adaptiv-value("margin-bottom", 40, 0, 1);
-        padding: 0 50px;
-        @media (max-width: $md1+px) {
-            padding: 0px;
+        @extend %title;
+        @include adaptiveValue("margin-bottom", 40, 0);
+        @media (min-width: $pc) {
+            padding: 0 rem(50);
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.2);
     }
 
     &__body {
         position: relative;
-        margin: 0px 130px 0 30px;
-        @media (max-width: $md1+px) {
-            margin: 0;
+        @media (min-width: $pc) {
+            margin: 0px rem(130) 0 rem(30);
         }
     }
 
     &__slider {
     }
 
+    &__wrapper {
+    }
+
     &__slide {
     }
+
     &__circle {
-        width: 20px;
-        height: 20px;
+        width: rem(20);
+        height: rem(20);
         top: 45%;
-        left: -80px;
-        @media (max-width: 1599.98px) {
+        left: rem(-80);
+        @media (max-width: em(1599.98)) {
             left: 0;
         }
-        @media (max-width: $md1+px) {
+        @media (max-width: $pc) {
             top: 15%;
-            left: 50px;
+            left: rem(50);
         }
-        @media (max-width: $md2+px) {
-            top: -40px;
+        @media (max-width: $tablet) {
+            top: rem(-40);
         }
-        @media (max-width: 650px) {
+        @media (max-width: em(650)) {
             top: auto;
-            bottom: -40px;
+            bottom: rem(-40);
         }
     }
 }
+
 .slide-testi {
-    display: none;
+    display: flex;
     justify-content: space-between;
     position: relative;
-    padding: 20px;
-    @media (max-width: $md1+px) {
-        padding: 20px 20px 20px 0px;
+    padding: rem(20);
+    background-color: $white;
+    @media (max-width: $pc) {
+        padding-left: rem(0);
     }
-    @media (max-width: 650px) {
-        padding: 20px 0px 0px 0px;
-    }
-    &__content {
-        @include adaptiv-value("margin-top", 65, 0, 1);
-        flex: 0 1 450px;
-        @media (max-width: $md2+px) {
-            margin-top: 0;
-        }
-        @media (max-width: $md3+px) {
-            flex: 0 1 50%;
-        }
-        @media (max-width: 650px) {
-            flex: 1 1 100%;
-        }
+    @media (max-width: em(650)) {
+        padding: rem(20) 0px 0px 0px;
     }
 
-    &__info {
+    &__content {
+        flex: 0 1 rem(450);
         display: flex;
         height: 100%;
         flex-direction: column;
+        @media (min-width: $tablet) {
+            @include adaptiveValue("margin-top", 65, 0);
+        }
+        @media (max-width: $mobile) {
+            flex: 0 1 50%;
+        }
+        @media (max-width: em(650)) {
+            flex: 1 1 100%;
+        }
     }
 
     &__stars {
         display: flex;
         align-items: center;
-        @include adaptiv-value("margin-bottom", 30, 20, 1);
+        @include adaptiveValue("margin-bottom", 30, 20);
         span {
-            @include adaptiv-font(25, 18, 1);
+            @include adaptiveValue("font-size", 25, 18);
             color: #ffbb0c;
             &:not(:last-child) {
-                @include adaptiv-value("margin-right", 15, 10, 1);
+                @include adaptiveValue("margin-right", 15, 10);
             }
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.2);
     }
 
     &__text {
         font-family: "Mulish";
-        @include adaptiv-font(24, 18, 1);
-        line-height: 36 / 24 * 100%;
-        @include adaptiv-value("margin-bottom", 40, 15, 1);
+        @include adaptiveValue("font-size", 24, 18);
+        line-height: math.div(36, 24);
+        @include adaptiveValue("margin-bottom", 40, 15);
         flex: 1 1 auto;
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.2);
     }
 
     &__bottom {
-        @extend .no-anim;
-        transition: all 0.8s ease 0.2s;
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(-50%, 0, 0.8, 0.2);
     }
 
     &__name {
         font-weight: 700;
-        font-size: 22px;
-        line-height: 48 / 22 * 100%;
+        font-size: rem(22);
+        line-height: math.div(48, 22);
     }
 
     &__work {
-        font-size: 18px;
+        font-size: rem(18);
         color: rgba(0, 0, 0, 0.85);
     }
 
-    &__image {
-        flex: 0 0 385px;
-        height: 490px;
-        margin: 0px 0px 0px 30px;
+    &__image-ibg {
+        flex: 0 0 rem(385);
+        height: rem(490);
+        margin-left: rem(30);
         img {
-            border-radius: 14px;
+            border-radius: rem(14);
             overflow: hidden;
             position: relative;
             z-index: 15;
         }
         span {
-            width: 42px;
-            height: 42px;
+            width: rem(42);
+            height: rem(42);
         }
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             flex: 0 1 50%;
-            height: 400px;
+            height: rem(400);
         }
-        @media (max-width: 650px) {
+        @media (max-width: em(650)) {
             display: none;
         }
-        @extend .no-anim;
-        transition: all 0.8s ease 0.4s;
-        &._animate {
-            @extend .anim;
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(0, 0, 0.8, 0.4);
     }
 
     &__circle {
-        top: -18px;
-        right: -18px;
+        top: rem(-18);
+        right: rem(-18);
         z-index: 10;
     }
 
     &__cross {
-        bottom: -16px;
-        left: -16px;
+        bottom: rem(-16);
+        left: rem(-16);
         transform: rotate(8.17deg);
         z-index: 20;
     }
@@ -786,65 +663,27 @@
 
 .trends {
     &__top {
-        padding: 0 50px;
-        @media (max-width: $md1+px) {
-            padding: 0px;
+        @media (min-width: $pc) {
+            padding: 0 rem(50);
         }
     }
     &__container {
+        position: relative;
     }
 
     &__body {
-        display: flex;
-        margin: 0px 35px;
-        @media (max-width: $md1+px) {
-            margin: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(25);
+        @media (min-width: $pc) {
+            padding: 0 rem(50);
         }
-        @media (max-width: 850px) {
-            flex-wrap: wrap;
+        @media (max-width: em(850)) {
+            grid-template-columns: repeat(2, 1fr);
         }
-    }
-
-    &__column {
-        flex: 0 1 25%;
-        padding: 0px 15px;
-        margin-bottom: 40px;
-        @media (max-width: 850px) {
-            flex: 0 1 50%;
-        }
-        @media (max-width: $md4+px) {
-            flex: 1 1 100%;
-            padding: 0;
-            &:nth-child(1) {
-                transition: all 0.8s ease 0.2s;
-            }
-            &:nth-child(2) {
-                transition: all 0.8s ease 0.2s;
-            }
-            &:nth-child(3) {
-                transition: all 0.8s ease 0.2s;
-            }
-            &:nth-child(4) {
-                transition: all 0.8s ease 0.2s;
-            }
-        }
-        @extend .no-anim;
-        &:nth-child(1) {
-            transition: all 0.8s ease 0.2s;
-        }
-        &:nth-child(2) {
-            transition: all 0.8s ease 0.4s;
-        }
-        &:nth-child(3) {
-            transition: all 0.8s ease 0.6s;
-        }
-        &:nth-child(4) {
-            transition: all 0.8s ease 0.8s;
-        }
-        transform: translate(-50%, 0px);
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: 1fr;
+            gap: rem(50);
         }
     }
 
@@ -854,34 +693,55 @@
         height: 100%;
         @media (any-hover: hover) {
             &:hover {
-                .trends__image {
+                .trends__image-ibg {
                     img {
                         transform: scale(1.05);
                     }
                 }
             }
         }
+
+        // ANIMATION ========================================================================================================================================================
+        &:nth-child(1) {
+            @include inViewBasic(-50%, 0, 0.8, 0.2);
+        }
+        &:nth-child(2) {
+            @include inViewBasic(-50%, 0, 0.8, 0.4);
+        }
+        &:nth-child(3) {
+            @include inViewBasic(-50%, 0, 0.8, 0.6);
+        }
+        &:nth-child(4) {
+            @include inViewBasic(-50%, 0, 0.8, 0.8);
+        }
+        @media (max-width: $mobileSmall) {
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(4) {
+                @include inViewBasic(0, 0, 0.8, 0.2);
+            }
+        }
     }
 
-    &__image {
-        border-radius: 8px 8px 0px 0px;
+    &__image-ibg {
+        border-radius: rem(8) rem(8) 0px 0px;
         overflow: hidden;
-        padding-bottom: 230 / 260 * 100%;
-        margin: 0px 0px 15px 0px;
-        min-height: 250px;
+        padding-bottom: percent(230, 260);
+        margin-bottom: rem(15);
+        min-height: rem(250);
         img {
-            transition: all 0.3s ease 0s;
+            transition: transform 0.3s ease 0s;
         }
     }
 
     &__title {
         flex: 1 1 auto;
-        margin: 0px 0px 15px 0px;
+        margin-bottom: rem(15);
         font-weight: 700;
-        font-size: 19px;
-        line-height: 30 / 19 * 100%;
-        transition: all 0.3s ease 0s;
-        color: $dark;
+        font-size: rem(19);
+        line-height: math.div(30, 19);
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
                 color: $orange;
@@ -890,23 +750,18 @@
     }
 
     &__text {
-        font-size: 15px;
-        line-height: 26 / 15 * 100%;
+        line-height: math.div(26, 15);
         color: $grey;
-        max-height: 80px;
+        max-height: rem(80);
         overflow: hidden;
-        @include adaptiv-value("margin-bottom", 25, 15, 1);
-        @media (max-width: $md2+px) {
-            @include adaptiv-value("margin-bottom", 20, 10, 1);
-        }
+        @include adaptiveValue("margin-bottom", 25, 10, 1220, 767.98, 1);
     }
 
     &__more {
         font-weight: 600;
-        font-size: 15px;
-        line-height: 28 / 15 * 100%;
+        line-height: math.div(28, 15);
         color: $orange;
-        transition: all 0.3s ease 0s;
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
                 color: $dark;
@@ -914,35 +769,35 @@
         }
     }
     &__circle {
-        width: 20px;
-        height: 20px;
+        width: rem(20);
+        height: rem(20);
         &_1 {
             bottom: 30%;
-            left: -30px;
-            @media (max-width: 1599.98px) {
-                left: 20px;
+            left: rem(-30);
+            @media (max-width: em(1599.98)) {
+                left: rem(20);
             }
-            @media (max-width: $md1+px) {
+            @media (max-width: $pc) {
                 display: none;
             }
         }
 
         &_2 {
-            bottom: -25px;
+            bottom: rem(-25);
             left: 70%;
-            @media (max-width: 650px) {
-                bottom: 25px;
+            @media (max-width: em(650)) {
+                bottom: rem(25);
                 left: 87%;
             }
         }
     }
 
     &__cross {
-        width: 20px;
-        height: 20px;
-        top: -40px;
+        width: rem(20);
+        height: rem(20);
+        top: rem(-40);
         left: 45%;
-        @media (max-width: 650px) {
+        @media (max-width: em(650)) {
             display: none;
         }
     }

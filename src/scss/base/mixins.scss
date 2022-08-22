@@ -101,16 +101,19 @@
 //========================================================================================================================================================
 @mixin inViewBasic($startPosX, $startPosY, $speed, $delay, $child: false) {
     transform: translate($startPosX, $startPosY);
-    transition: transform #{$speed}s ease #{$delay}s, opacity #{$speed}s ease #{$delay}s;
+    transition: transform #{$speed}s ease #{$delay}s, opacity #{$speed}s ease #{$delay}s, visibility #{$speed}s ease #{$delay}s;
+    visibility: hidden;
     opacity: 0;
     @if ($child == true) {
         ._watcher-view & {
             opacity: 1 !important;
+            visibility: visible;
             transform: translate(0px, 0px) !important;
         }
     } @else {
         &._watcher-view {
             opacity: 1 !important;
+            visibility: visible;
             transform: translate(0px, 0px) !important;
         }
     }
@@ -128,6 +131,7 @@
     &::-webkit-scrollbar-thumb {
         background: $foreground-color;
         overflow: hidden;
+        border-radius: rem(4);
     }
 
     &::-webkit-scrollbar-track {

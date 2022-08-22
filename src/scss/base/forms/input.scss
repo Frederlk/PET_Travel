@@ -1,0 +1,25 @@
+//<INPUT (inp+tab)>====================================================================================================
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(5) rem(30);
+    border: rem(1) solid $fadeGrey1;
+    border-radius: rem(6);
+    min-height: rem(52);
+    font-size: rem(15);
+    line-height: math.div(32, 15);
+    color: $dark2;
+    @media (max-width: $tablet) {
+        padding: rem(5) rem(15);
+    }
+}

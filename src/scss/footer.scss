@@ -1,112 +1,98 @@
 .footer {
-    @include adaptiv-value("padding-top", 150, 40, 1);
-
-    &__wrapper {
-        background-color: $bg;
-    }
-
+    @include adaptiveValue("margin-top", 150, 40, 1220, 767.98, 1);
+    background-color: $bg;
     &__container {
     }
 
     &__body {
-        @include adaptiv-value("padding-top", 75, 20, 1);
-        @include adaptiv-value("padding-bottom", 80, 25, 1);
+        @include adaptiveValue("padding-top", 75, 20);
+        @include adaptiveValue("padding-bottom", 80, 25);
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid #c4c4c4;
-        margin: 0px -10px;
-        @media (max-width: 850px) {
+        border-bottom: rem(1) solid $grey3;
+        @media (max-width: em(850)) {
             flex-wrap: wrap;
+        }
+        @media (min-width: $mobileSmall) {
+            gap: rem(20);
         }
     }
 
     &__info {
-        flex: 0 1 410px;
+        flex: 0 1 rem(410);
         font-family: "Mulish";
         font-weight: 300;
-        font-size: 18px;
-        line-height: 28 / 18 * 100%;
-        color: #848484;
-        padding: 0px 10px;
-        @media (max-width: $md2+px) {
-            flex: 0 1 300px;
+        font-size: rem(18);
+        line-height: math.div(28, 18);
+        color: $grey2;
+        @media (max-width: $tablet) {
+            flex: 0 1 rem(300);
         }
-        @media (max-width: 850px) {
+        @media (max-width: em(850)) {
             flex: 1 1 100%;
-            @include adaptiv-value("margin-bottom", 30, 20, 1);
         }
-        transform: translate(0%, 30%);
-        transition: all 0.8s ease 0.2s;
-        @extend .no-anim;
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
+        @media (max-width: $mobileSmall) {
+            margin-bottom: rem(20);
         }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(0, 30%, 0.8, 0.2);
     }
 
     &__logo {
         display: inline-flex;
-        width: 44px;
-        height: 44px;
-        @include adaptiv-value("margin-bottom", 25, 20, 1);
+        width: rem(44);
+        height: rem(44);
+        @include adaptiveValue("margin-bottom", 25, 20);
         img {
             max-width: 100%;
         }
     }
 
     &__text {
-        @include adaptiv-value("margin-bottom", 55, 20, 1);
-        @media (max-width: 850px) {
-            @include adaptiv-value("margin-bottom", 30, 20, 1);
-        }
+        @include adaptiveValue("margin-bottom", 55, 20, 1220, 850, 1);
     }
 
     &__copy {
     }
 
     &__column {
-        padding: 0px 10px;
-        flex: 0 1 185px;
-        @media (max-width: 850px) {
-            flex: 0 1 33.333%;
+        flex: 0 1 rem(185);
+        @media (max-width: em(850)) {
+            flex: 0 1 calc(33.333% - rem(15));
         }
-        @media (max-width: 570px) {
+        @media (max-width: em(570)) {
             flex: 1 1 100%;
         }
-        transform: translate(0%, 30%);
-        transition: all 0.8s ease 0.2s;
-        @extend .no-anim;
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(0, 30%, 0.8, 0.2);
     }
 
     &__label {
         font-family: "Mulish";
         font-weight: 700;
-        font-size: 19px;
-        line-height: 60 / 19 * 100%;
-        color: $dark;
+        font-size: rem(19);
+        line-height: math.div(60, 19);
         display: flex;
         align-items: center;
         justify-content: space-between;
         transition: color 0.5s ease 0s;
-        @media (max-width: 570px) {
-            cursor: pointer;
-        }
         &::after {
-            font-size: 15px;
+            font-size: rem(15);
             transition: transform 0.5s ease 0s;
-            @media (min-width: 570px) {
+            @media (min-width: em(570)) {
                 display: none;
             }
         }
-        &._active {
+        &._spoller-active {
             color: $orange;
             &::after {
                 transform: rotate(-180deg);
             }
+        }
+        @media (max-width: em(570)) {
+            cursor: pointer;
         }
     }
 
@@ -116,10 +102,10 @@
     &__link {
         font-family: "Mulish";
         font-weight: 300;
-        font-size: 18px;
-        line-height: 38 / 18 * 100%;
-        color: #848484;
-        transition: all 0.3s ease 0s;
+        font-size: rem(18);
+        line-height: math.div(38, 18);
+        color: $grey2;
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
                 color: $orange;
@@ -131,23 +117,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        @include adaptiv-value("padding-top", 30, 20, 1);
-        @include adaptiv-value("padding-bottom", 30, 20, 1);
-        transform: translate(0%, 30%);
-        transition: all 0.8s ease 0.2s;
-        @extend .no-anim;
-        &._animate {
-            @extend .anim;
-            transform: translate(0px, 0px);
-        }
+        @include adaptiveValue("padding-top", 30, 20, 767.98, 479.98, 1);
+        @include adaptiveValue("padding-bottom", 30, 20, 767.98, 479.98, 1);
+
+        // ANIMATION ========================================================================================================================================================
+        @include inViewBasic(0, 30%, 0.8, 0.2);
     }
 
     &__item {
-        color: $dark;
-        transition: all 0.3s ease 0s;
-        font-size: 22px;
+        transition: color 0.3s ease 0s;
+        font-size: rem(22);
         &:not(:last-child) {
-            @include adaptiv-value("margin-right", 35, 25, 1);
+            @include adaptiveValue("margin-right", 35, 25);
         }
         @media (any-hover: hover) {
             &:hover {

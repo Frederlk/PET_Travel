@@ -1,43 +1,42 @@
-//====================================================================================================
-//====================================================================================================
 .header {
-    position: relative;
+    padding-top: rem(35);
+    position: fixed;
     width: 100%;
-    top: 0;
+    z-index: 100;
+    transition: padding-top 0.8s ease 0s, top 0.8s ease 0s;
+    background-color: $white;
     left: 0;
-    &__wrapper {
-        top: -60px;
-        @extend .no-anim;
-        padding-top: 35px;
-        position: fixed;
-        width: 100%;
-        left: 0;
-        z-index: 100;
-        transition: all 0.8s ease 0s;
-        background-color: $white;
-        @media (max-width: $md2+px) {
-            padding-top: 25px;
-        }
-        @media (max-width: $md3+px) {
-            padding-top: 15px;
-        }
-        @media (max-width: $md4+px) {
-            padding-top: 0;
-        }
+    @media (max-width: $tablet) {
+        padding-top: rem(25);
+    }
+    @media (max-width: $mobile) {
+        padding-top: rem(15);
+    }
+    @media (max-width: $mobileSmall) {
+        padding-top: 0;
+    }
+    &._header-scroll {
+        padding-top: 0;
+    }
+    top: rem(-60);
+    @extend %no-anim;
+    .loaded & {
+        top: 0;
+        @extend %anim;
     }
 
     &__container {
-    }
-
-    &__body {
         display: flex;
         align-items: center;
-        min-height: 60px;
-        padding: 5px 0px;
+        min-height: rem(60);
+        @include adaptiveValue("gap", 34, 20, 1220, 767.98, 1);
+        @media (max-width: $mobileSmall) {
+            justify-content: space-between;
+        }
     }
 
     &__logo {
-        flex: 0 0 41px;
+        flex: 0 0 rem(41);
         position: relative;
         z-index: 20;
         img {
@@ -46,129 +45,127 @@
     }
 
     &__menu {
+        @media (min-width: $mobile) {
+            flex: 1 1 auto;
+        }
     }
 
     &__profile {
         display: flex;
         align-items: center;
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobile) {
+            flex: 1 1 auto;
+            justify-content: flex-end;
+        }
+        @media (max-width: $mobileSmall) {
             justify-content: space-between;
-            margin: 30px 0px 0px 0px;
+            margin-top: rem(30);
         }
     }
 
     &__login {
         position: relative;
         z-index: 20;
-        min-height: 44px;
-        flex: 0 0 132px;
-        min-width: 132px;
-        font-size: 15px;
+        min-height: rem(44);
+        flex: 0 0 rem(132);
+        min-width: rem(132);
+        font-size: rem(15);
         &:not(:last-child) {
-            @include adaptiv-value("margin-right", 18, 10, 1);
+            @include adaptiveValue("margin-right", 18, 10);
         }
-        @media (max-width: $md4+px) {
+        @media (max-width: $mobileSmall) {
             flex: 0 0 48%;
         }
     }
     &__icon {
-        margin-left: 20px;
     }
 }
 .menu {
-    flex: 1 1 auto;
-    @media (min-width: $md3+px) {
-        @include adaptiv-value("margin-right", 35, 20, 1);
-    }
-    &__wrapper {
-        @media (max-width: $md3+px) {
+    @media (max-width: $mobile) {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s ease 0s, visibility 0.8s ease 0s;
+        &::before {
+            content: "";
             position: fixed;
             width: 100%;
-            height: 100%;
+            height: 60px;
             top: 0;
             left: 0;
-            background-color: rgba(255, 255, 255, 0.5);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.8s ease 0s;
+            background-color: $white;
+            transition: opacity 0.8s ease 0s, visibility 0.8s ease 0s;
+
+            z-index: 15;
+        }
+        .menu-open & {
+            opacity: 1;
+            visibility: visible;
             &::before {
-                content: "";
-                position: fixed;
-                width: 100%;
-                height: 60px;
-                top: 0;
-                left: 0;
-                opacity: 0;
-                visibility: hidden;
-                background-color: $white;
-                transition: all 0.8s ease 0s;
-                z-index: 15;
-            }
-            &._active {
                 opacity: 1;
                 visibility: visible;
-                &::before {
-                    opacity: 1;
-                    visibility: visible;
-                }
             }
         }
     }
 
     &__body {
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             position: fixed;
-            width: 355px;
+            width: rem(355);
             height: 100%;
             top: 0;
             right: 0;
-            padding: 100px 15px 30px 15px;
+            padding: rem(100) rem(15) rem(30) rem(15);
             background-color: $white;
             z-index: 10;
             overflow: auto;
             opacity: 0;
             visibility: hidden;
             transform: translate(100%, 0px);
-            transition: all 0.8s ease 0s;
-
-            &._active {
+            transition: opacity 0.8s ease 0s, visibility 0.8s ease 0s, transform 0.8s ease 0s;
+            @include scrollbars(rem(5), $orange, $white);
+            .menu-open & {
                 opacity: 1;
                 visibility: visible;
                 transform: translate(0px, 0px);
             }
         }
-        @media (max-width: $md4+px) {
-            padding: 80px 15px 30px 15px;
+        @media (max-width: $mobileSmall) {
+            padding: rem(80) rem(15) rem(30) rem(15);
             width: 100%;
         }
     }
 
     &__list {
-        @media (min-width: $md3+px) {
+        @media (min-width: $mobile) {
             justify-content: flex-end;
             display: flex;
+            @include adaptiveValue("gap", 35, 20);
             align-items: center;
         }
-        li {
-            @media (min-width: $md3+px) {
-                &:not(:last-child) {
-                    @include adaptiv-value("margin-right", 35, 20, 1);
-                }
-            }
-            @media (max-width: $md3+px) {
-                &:not(:last-child) {
-                    @include adaptiv-value("margin-bottom", 30, 20, 1);
-                }
+    }
+
+    &__item {
+        @media (max-width: $mobile) {
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 30, 20);
             }
         }
     }
 
     &__link {
         font-weight: 500;
-        font-size: 16px;
-        line-height: 19 / 16 * 100%;
+        font-size: rem(16);
+        line-height: math.div(19, 16);
         color: $fadeGrey;
-        transition: all 0.3s ease 0s;
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
                 color: $dark;
@@ -177,106 +174,58 @@
         &._active {
             color: $dark;
         }
-        @media (max-width: $md3+px) {
-            font-size: 18px;
-        }
-    }
-}
-
-.icon-menu {
-    display: none;
-    @media (max-width: $md3+px) {
-        display: block;
-        position: relative;
-        top: 0px;
-        right: 0px;
-        width: 30px;
-        height: 20px;
-        cursor: pointer;
-        z-index: 20;
-        span {
-            transition: all 0.3s ease 0s;
-            top: calc(50% - 1px);
-            left: 0px;
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: $dark;
-            &:first-child {
-                top: 0px;
-            }
-            &:last-child {
-                top: auto;
-                bottom: 0px;
-            }
-        }
-        &._active {
-            span {
-                transform: scale(0);
-                &:first-child {
-                    transform: rotate(-45deg);
-                    top: calc(50% - 1px);
-                }
-                &:last-child {
-                    transform: rotate(45deg);
-                    bottom: calc(50% - 1px);
-                }
-            }
+        @media (max-width: $mobile) {
+            font-size: rem(18);
         }
     }
 }
 
 //====================================================================================================
 
-//Burger
-/*
 .icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		cursor: pointer;
-		z-index: 5;
-    	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-   		-webkit-tap-highlight-color: transparent;
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
-		}
-	}
+    display: none;
+    @media (max-width: $mobile) {
+        display: block;
+        position: relative;
+        width: rem(30);
+        height: rem(20);
+        cursor: pointer;
+        z-index: 5;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-tap-highlight-color: transparent;
+        span,
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            right: 0;
+            position: absolute;
+            width: 100%;
+            height: rem(2);
+            background-color: $dark;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        span {
+            top: calc(50% - rem(1));
+        }
+        .menu-open & {
+            span {
+                width: 0;
+            }
+
+            &::before {
+                top: calc(50% - rem(1));
+                transform: rotate(-45deg);
+            }
+            &::after {
+                bottom: calc(50% - rem(1));
+                transform: rotate(45deg);
+            }
+        }
+    }
 }
-*/

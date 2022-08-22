@@ -22,9 +22,13 @@ $fontSize: rem(15); // где 14(px) - размер шрифта по умолч
 // Основные цвета
 $white: #fff;
 $dark: #202336;
+$dark2: #4a4c53;
 $orange: #fb8f1d;
 $grey: #7d7987;
+$grey2: #848484;
+$grey3: #c4c4c4;
 $fadeGrey: #b8becd;
+$fadeGrey1: #afb0b9;
 $bg: #f9f9fb;
 $mainColor: $dark; // Цвет шрифта по умолчанию
 
@@ -58,6 +62,7 @@ $responsiveType: 1;
 
 body {
     background-color: $white;
+    @include scrollbars(rem(10), $orange, $white);
     // Скролл заблокирован
     .lock & {
         overflow: hidden;
@@ -65,23 +70,11 @@ body {
     }
     // Сайт загружен
     .loaded & {
-        .slide-testi {
-            display: flex;
-        }
-        .header__wrapper {
-            top: 0;
-            @extend .anim;
-        }
         .main {
             .circle,
             .cross {
-                @extend .anim;
+                @extend %anim;
             }
-        }
-    }
-    &._scroll {
-        .header__wrapper {
-            padding-top: 0px;
         }
     }
 }
@@ -151,7 +144,7 @@ body {
 // Подключение базовых стилей, шаблонов (заготовок) и вспомогательных  классов
 // Для подключения/отключения конкретных стилей смотри base.scss
 @import "base";
-
+@import "node_modules/vanillajs-datepicker/sass/datepicker";
 // Подключение стилей общих элементов проекта
 @import "common";
 
@@ -166,40 +159,40 @@ body {
 
 .page {
     &__main {
-        padding-top: 170px;
-        @media (max-width: $md2+px) {
-            padding-top: 140px;
+        padding-top: rem(170);
+        @include adaptiveValue("padding-bottom", 140, 30);
+        @media (max-width: $tablet) {
+            padding-top: rem(140);
         }
-        @media (max-width: 870px) {
-            padding-top: 120px;
+        @media (max-width: em(870)) {
+            padding-top: rem(120);
         }
-        @media (max-width: $md3+px) {
-            padding-top: 100px;
+        @media (max-width: $mobile) {
+            padding-top: rem(100);
         }
-        @media (max-width: $md4+px) {
-            padding-top: 80px;
+        @media (max-width: $mobileSmall) {
+            padding-top: rem(80);
         }
-        @include adaptiv-value("padding-bottom", 140, 30, 1);
     }
     &__explore {
-        @include adaptiv-value("padding-top", 140, 30, 1);
-        @include adaptiv-value("padding-bottom", 140, 30, 1);
+        @include adaptiveValue("padding-top", 140, 50, 1220, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 140, 50, 1220, 767.98, 1);
     }
 
     &__destinations {
-        @include adaptiv-value("padding-top", 140, 30, 1);
-        @include adaptiv-value("padding-bottom", 120, 30, 1);
+        @include adaptiveValue("padding-top", 140, 50, 1220, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 120, 50, 1220, 767.98, 1);
     }
     &__sunny {
-        @include adaptiv-value("padding-top", 110, 30, 1);
-        @include adaptiv-value("padding-bottom", 120, 30, 1);
+        @include adaptiveValue("padding-top", 110, 50, 1220, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 120, 50, 1220, 767.98, 1);
     }
     &__testi {
-        @include adaptiv-value("padding-top", 120, 30, 1);
-        @include adaptiv-value("padding-bottom", 100, 30, 1);
+        @include adaptiveValue("padding-top", 120, 50, 1220, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 100, 50, 1220, 767.98, 1);
     }
     &__trends {
-        @include adaptiv-value("padding-top", 120, 30, 1);
-        @include adaptiv-value("padding-bottom", 130, 0, 1);
+        @include adaptiveValue("padding-top", 120, 50, 1220, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 130, 50, 1220, 767.98, 1);
     }
 }
