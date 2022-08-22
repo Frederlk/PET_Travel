@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title":"Thousand Sunny"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('_header.html',{})
+		<main class="page">
+			<section class="page__main main">
+				<div class="main__container _container">
+					<div class="main__body">
+						<div class="main__info info-main">
+							<div class="info-main__content">
+								<h1 class="info-main__title _anim-items">Explore and
+									Travel</h1>
+								<form action="#" method="post" class="info-main__form">
+									<h3 class="info-main__subtitle _anim-items">Holiday finder</h3>
+									<div class="info-main__row">
+										<div class="info-main__select _anim-items">
+											<select name="form[]" required multiple class="form">
+												<option disabled selected="selected">Location</option>
+												<option value="1">USA</option>
+												<option value="2">Europe</option>
+												<option value="3">Asia</option>
+												<option value="4">Africa</option>
+											</select>
+										</div>
+										<div class="info-main__select _anim-items">
+											<select name="form[]" required multiple class="form">
+												<option disabled selected="selected">Activity</option>
+												<option value="1">Travel</option>
+												<option value="2">Hostel</option>
+												<option value="3">Sea</option>
+												<option value="4">Tourism</option>
+											</select>
+										</div>
+									</div>
+									<div class="info-main__row">
+										<div class="info-main__select _anim-items">
+											<select name="form[]" required multiple class="form">
+												<option disabled selected>Grade</option>
+												<option value="1">1 Star</option>
+												<option value="2">2 Stars</option>
+												<option value="3">3 Stars</option>
+												<option value="4">4 Stars</option>
+												<option value="5">5 Stars</option>
+											</select>
+										</div>
+										<div class="info-main__date _anim-items">
+											<input autocomplete="off" type="date" name="form[]" value="2022-01-01" min="2022-01-01"
+												max="" data-error="Error" data-value="date" class="input">
+										</div>
+									</div>
+									<button type="submit" class="info-main__btn btn _anim-items">Explore</button>
+								</form>
+							</div>
+						</div>
+						<div class="main__image _anim-items" data-da=".info-main__content,767.98,1">
+							<img src="img/content/01.png" alt="">
+						</div>
+					</div>
+					<span class="main__circle main__circle_1 circle">
+						<img src="img/circle.svg" alt="" data-depth="0.20">
+					</span>
+					<span class="main__cross cross">
+						<img src="img/cross.svg" alt="">
+					</span>
+					<span class="main__circle main__circle_2 circle second">
+						<img src="img/circle.svg" alt="">
+					</span>
+				</div>
+			</section>
+			<section class="page__explore holder">
+				<div class="holder__container _container">
+					<div class="holder__body">
+						<div class="holder__image _anim-items" data-da=".content-holder__body_1,767.98,1">
+							<img src="img/content/02.png" alt="">
+						</div>
+						<div class="holder__content content-holder">
+							<div class="content-holder__body  content-holder__body_1">
+								<h2 class="content-holder__title _anim-items">A new way to explore the world </h2>
+								<div class="content-holder__text _anim-items">For decades travellers have reached for Lonely
+									Planet books
+									when looking to plan and execute their perfect
+									trip, but now, they can also let Lonely Planet Experiences lead the way</div>
+								<a href="#" class="content-holder__btn btn _anim-items">Learn more</a>
+							</div>
+						</div>
+					</div>
+					<span class="holder__circle holder__circle_explore circle"><img src="img/circle.svg" alt=""></span>
+					<span class="holder__cross holder__cross_explore cross"><img src="img/cross.svg" alt=""></span>
+				</div>
+			</section>
+			<section class="page__destinations destinations">
+				<div class="destinations__container _container">
+					<div class="destinations__top top">
+						<h2 class="top__title _anim-items">Featured destinations</h2>
+						<a href="#" class="top__more _icon-arrow _anim-items">View all</a>
+					</div>
+					<div class="destinations__body">
+						<div class="destinations__column _anim-items">
+							<a href="#" class="destinations__inner">
+								<div class="destinations__image _ibg">
+									<img src="img/destinations/01.jpg" alt="">
+								</div>
+								<div class="destinations__content">
+									<div class="destinations__subtitle">Raja Ampat</div>
+									<div class="destinations__country">Indonesia</div>
+								</div>
+							</a>
+						</div>
+						<div class="destinations__column _anim-items">
+							<a href="#" class="destinations__inner">
+								<div class="destinations__image _ibg">
+									<img src="img/destinations/02.jpg" alt="">
+								</div>
+								<div class="destinations__content">
+									<div class="destinations__subtitle">Fanjingshan</div>
+									<div class="destinations__country">China</div>
+								</div>
+							</a>
+						</div>
+						<div class="destinations__column _anim-items">
+							<a href="#" class="destinations__inner">
+								<div class="destinations__image _ibg">
+									<img src="img/destinations/03.jpg" alt="">
+								</div>
+								<div class="destinations__content">
+									<div class="destinations__subtitle">Vevey</div>
+									<div class="destinations__country">Switzerland</div>
+								</div>
+							</a>
+						</div>
+						<div class="destinations__column _anim-items">
+							<a href="#" class="destinations__inner">
+								<div class="destinations__image _ibg">
+									<img src="img/destinations/04.jpg" alt="">
+								</div>
+								<div class="destinations__content">
+									<div class="destinations__subtitle">Skadar</div>
+									<div class="destinations__country">Montenegro</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<span class="destinations__circle destinations__circle_1 circle">
+						<img src="img/circle.svg" alt=""></span>
+					<span class="destinations__circle destinations__circle_2 second circle">
+						<img src="img/circle.svg" alt=""></span>
+					<span class="destinations__cross cross">
+						<img src="img/cross.svg" alt=""></span>
+				</div>
+			</section>
+			<section class="page__sunny holder holder_sunny">
+				<div class="holder__container _container">
+					<div class="holder__body">
+						<div class="holder__content content-holder ">
+							<div class="content-holder__body content-holder__body_2">
+								<h2 class="content-holder__title _anim-items">Guides by Thousand
+									Sunny</h2>
+								<div class="content-holder__text _anim-items">Packed with tips and advice from our on-the-ground
+									experts,
+									our city guides app (iOS and Android) is the ultimate resource before and during a trip.
+								</div>
+								<a href="#" class="content-holder__btn btn _anim-items">Download</a>
+							</div>
+						</div>
+						<div class="holder__image _anim-items" data-da=".content-holder__body_2,767.98,1">
+							<img src="img/content/03.png" alt="">
+						</div>
+					</div>
+					<span class="holder__circle holder__circle_sunny circle">
+						<img src="img/circle.svg" alt=""></span>
+					<span class="holder__cross holder__cross_sunny-1 second cross">
+						<img src="img/cross.svg" alt=""></span>
+					<span class="holder__cross holder__cross_sunny-2 cross">
+						<img src="img/cross.svg" alt=""></span>
+				</div>
+			</section>
+			<section class="page__testi testi">
+				<div class="testi__container _container">
+					<h2 class="testi__title _anim-items">
+						Testimonials
+					</h2>
+					<div class="testi__body">
+						<div class="testi__slider">
+							<div class="testi__slide slide-testi">
+								<div class="slide-testi__content">
+									<div class="slide-testi__info">
+										<div class="slide-testi__stars _anim-items">
+											<span class="_icon-star"></span>
+											<span class="_icon-star"></span>
+											<span class="_icon-star"></span>
+											<span class="_icon-star"></span>
+											<span class="_icon-star"></span>
+										</div>
+										<div class="slide-testi__text _anim-items">“Quisque in lacus a urna fermentum euismod.
+											Integer mi
+											nibh, dapibus ac scelerisque eu, facilisis quis purus. Morbi blandit sit amet turpis
+											nec”
+										</div>
+										<div class="slide-testi__bottom _anim-items">
+											<div class="slide-testi__name">Edward Newgate</div>
+											<div class="slide-testi__work">Founder Circle</div>
+										</div>
+									</div>
+								</div>
+								<div class="slide-testi__image _ibg _anim-items">
+									<img src="img/testi/01.jpg" alt="">
+									<span class="slide-testi__circle circle-testi">
+										<img src="img/circle.svg" alt="">
+									</span>
+									<span class="slide-testi__cross cross-testi">
+										<img src="img/cross.svg" alt="">
+									</span>
+								</div>
+							</div>
+							<div class="testi__slide slide-testi">
+								<div class="slide-testi__content">
+									<div class="slide-testi__info">
+										<div class="slide-testi__stars _anim-items">
+											<span class="_icon-star"></span>
+											<span class="_icon-star"></span>
+											<span class="_icon-star"></span>
+											<span class="_icon-star"></span>
+										</div>
+										<div class="slide-testi__text _anim-items">“Lorem ipsum dolor, sit amet consectetur
+											adipisicing elit.
+											Vero, ipsa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsam
+											aliquam autem iste architecto ad laborum eum numquam libero qui!”
+										</div>
+										<div class="slide-testi__bottom _anim-items">
+											<div class="slide-testi__name">Newgate Criss</div>
+											<div class="slide-testi__work">Cross Founder</div>
+										</div>
+									</div>
+								</div>
+								<div class="slide-testi__image _anim-items _ibg">
+									<img src="img/testi/02.jpg" alt="">
+									<span class="slide-testi__circle circle-testi">
+										<img src="img/circle.svg" alt="">
+									</span>
+									<span class="slide-testi__cross cross-testi">
+										<img src="img/cross.svg" alt="">
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="testi__navigation navigation _anim-items">
+							<button type="button" class="navigation__nav-item navigation__nav-item_prev _icon-arrow"></button>
+							<button type="button" class="navigation__nav-item navigation__nav-item_next _icon-arrow"></button>
+						</div>
+					</div>
+					<span class="testi__circle circle"><img src="img/circle.svg" alt=""></span>
+				</div>
+			</section>
+			<section class="page__trends trends">
+				<div class="trends__container _container">
+					<div class="trends__top top">
+						<h2 class="top__title _anim-items">Featured destinations</h2>
+						<a href="#" class="top__more _anim-items _icon-arrow">View all</a>
+					</div>
+					<div class="trends__body">
+						<div class="trends__column _anim-items">
+							<article class="trends__inner">
+								<a href="#" class="trends__image _ibg">
+									<img src="img/trends/01.jpg" alt="">
+								</a>
+								<a href="#" class="trends__title">The many benefits of
+									taking a healing holiday</a>
+								<div class="trends__text">‘Helaing holidays’ are on the rise
+									tohelp maximise your health and happines...</div>
+								<a href="#" class="trends__more">Read more</a>
+							</article>
+						</div>
+						<div class="trends__column _anim-items">
+							<article class="trends__inner">
+								<a href="#" class="trends__image _ibg">
+									<img src="img/trends/02.jpg" alt="">
+								</a>
+								<a href="#" class="trends__title">Skip Chichen Itza and head
+									to this remote Yucatan</a>
+								<div class="trends__text">From tofu to teahouses, here’s our guide to Kyoto’s best restaurants
+									to visit...</div>
+								<a href="#" class="trends__more">Read more</a>
+							</article>
+						</div>
+						<div class="trends__column _anim-items">
+							<article class="trends__inner">
+								<a href="#" class="trends__image _ibg">
+									<img src="img/trends/03.jpg" alt="">
+								</a>
+								<a href="#" class="trends__title">The best Kyoto restaurant
+									to try Japanese food</a>
+								<div class="trends__text">It’s remote and challenging to get,
+									but braving the jungle and exploring
+									these ruins without the...</div>
+								<a href="#" class="trends__more">Read more</a>
+							</article>
+						</div>
+						<div class="trends__column _anim-items">
+							<article class="trends__inner">
+								<a href="#" class="trends__image _ibg">
+									<img src="img/trends/04.jpg" alt="">
+								</a>
+								<a href="#" class="trends__title">Surf’s up at these beginner
+									spots around the world</a>
+								<div class="trends__text">If learning to surf has in on your to-
+									do list for a while, the good news
+									is: it’s never too late...</div>
+								<a href="#" class="trends__more">Read more</a>
+							</article>
+						</div>
+					</div>
+					<span class="trends__circle trends__circle_1 circle">
+						<img src="img/circle.svg" alt=""></span>
+					<span class="trends__circle trends__circle_2 second circle">
+						<img src="img/circle.svg" alt=""></span>
+					<span class="trends__cross  cross">
+						<img src="img/cross.svg" alt=""></span>
+				</div>
+			</section>
+		</main>
+		@@include('_footer.html',{})
+	</div>
+	@@include('_js.html',{})
+</body>
+
+</html>

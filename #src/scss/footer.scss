@@ -1,0 +1,158 @@
+.footer {
+   @include adaptiv-value("padding-top", 150, 40, 1);
+
+   &__wrapper {
+      background-color: $bg;
+   }
+
+   &__container {
+   }
+
+   &__body {
+      @include adaptiv-value("padding-top", 75, 20, 1);
+      @include adaptiv-value("padding-bottom", 80, 25, 1);
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #c4c4c4;
+      margin: 0px -10px;
+      @media (max-width: 850px) {
+         flex-wrap: wrap;
+      }
+   }
+
+   &__info {
+      flex: 0 1 410px;
+      font-family: "Mulish";
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 28 / 18 * 100%;
+      color: #848484;
+      padding: 0px 10px;
+      @media (max-width: $md2+px) {
+         flex: 0 1 300px;
+      }
+      @media (max-width: 850px) {
+         flex: 1 1 100%;
+         @include adaptiv-value("margin-bottom", 30, 20, 1);
+      }
+      transform: translate(0%, 30%);
+      transition: all 0.8s ease 0.2s;
+      @extend .no-anim;
+      &._animate {
+         @extend .anim;
+         transform: translate(0px, 0px);
+      }
+   }
+
+   &__logo {
+      display: inline-flex;
+      width: 44px;
+      height: 44px;
+      @include adaptiv-value("margin-bottom", 25, 20, 1);
+      img {
+         max-width: 100%;
+      }
+   }
+
+   &__text {
+      @include adaptiv-value("margin-bottom", 55, 20, 1);
+      @media (max-width: 850px) {
+         @include adaptiv-value("margin-bottom", 30, 20, 1);
+      }
+   }
+
+   &__copy {
+   }
+
+   &__column {
+      padding: 0px 10px;
+      flex: 0 1 185px;
+      @media (max-width: 850px) {
+         flex: 0 1 33.333%;
+      }
+      @media (max-width: 570px) {
+         flex: 1 1 100%;
+      }
+      transform: translate(0%, 30%);
+      transition: all 0.8s ease 0.2s;
+      @extend .no-anim;
+      &._animate {
+         @extend .anim;
+         transform: translate(0px, 0px);
+      }
+   }
+
+   &__label {
+      font-family: "Mulish";
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 60 / 19 * 100%;
+      color: $dark;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color 0.5s ease 0s;
+      @media (max-width: 570px) {
+         cursor: pointer;
+      }
+      &::after {
+         font-size: 15px;
+         transition: transform 0.5s ease 0s;
+         @media (min-width: 570px) {
+            display: none;
+         }
+      }
+      &._active {
+         color: $orange;
+         &::after {
+            transform: rotate(-180deg);
+         }
+      }
+   }
+
+   &__list {
+   }
+
+   &__link {
+      font-family: "Mulish";
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 38 / 18 * 100%;
+      color: #848484;
+      transition: all 0.3s ease 0s;
+      @media (any-hover: hover) {
+         &:hover {
+            color: $orange;
+         }
+      }
+   }
+
+   &__social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include adaptiv-value("padding-top", 30, 20, 1);
+      @include adaptiv-value("padding-bottom", 30, 20, 1);
+      transform: translate(0%, 30%);
+      transition: all 0.8s ease 0.2s;
+      @extend .no-anim;
+      &._animate {
+         @extend .anim;
+         transform: translate(0px, 0px);
+      }
+   }
+
+   &__item {
+      color: $dark;
+      transition: all 0.3s ease 0s;
+      font-size: 22px;
+      &:not(:last-child) {
+         @include adaptiv-value("margin-right", 35, 25, 1);
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            color: $orange;
+         }
+      }
+   }
+}
