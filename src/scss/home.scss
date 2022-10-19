@@ -103,6 +103,8 @@
     }
 }
 .info-main {
+    position: relative;
+    z-index: 10;
     &__title {
         font-family: "Playfair Display";
         font-weight: 700;
